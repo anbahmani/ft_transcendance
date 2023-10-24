@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../../../node_modules/.prisma/client"
+  log      = ["query", "info", "warn"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id         Int     @id @default(autoincrement())
+  email      String  @unique
+  first_name String
+  id42       Int     @unique
+  image      String  @unique
+  last_name  String
+  login42    String  @unique
+  url        String  @unique
+  login      String? @unique
+  token      String?
+  isVerified Boolean @default(false)
+  follow     friendship[] @relation("follow")
+  followers  friendship[] @relation("followers")
+  messagesSent      message[]              @relation("sendMessage")
+  conversations     membership[]           @relation("belongTo")
+  conversationsOwner conversation[]        @relation("ownedBy")
+  conversationsAdmin conversationManagement[] @relation("managedBy")
+  discussions1       discussion[]           @relation("participant1")
+  discussions2       discussion[]           @relation("participant2")
+  bannedConversations bannedUser[]        	@relation("bannedFrom")
+  UserBanned bannedUser[]         			@relation("banner")
+  blockedUsers      blockedUser[]          @relation("blockedByUser")
+  blockingUsers     blockedUser[]          @relation("blockedUser")
+  mutedConversations mutedUser[]           @relation("mutedIn")
+  playedGamesAsPlayer1		 game[]           @relation("playAsPlayer1")
+  playedGamesAsPlayer2		 game[]           @relation("playAsPlayer2")
+  wonGames		 			game[]           @relation("win")
+}
+
+model friendship {
+  id          Int    @id @unique @default(autoincrement())
+  ownerId     Int
+  receiverId  Int
+  status      String
+  owner       user    @relation( "follow", fields: [ownerId], references: [id], map: "friendship_own_fkey")
+  receiver    user    @relation("followers",fields: [receiverId], references: [id], map: "friendship_recv_fkey")
+}
+
+model conversation {
+  id                Int                    @id @default(autoincrement())
+  name              String					       @unique
+  messages          message[]              @relation("displayInConversation")
+  type              String
+  password          String?
+  members           membership[]           @relation("membersOf")
+  owner             user                   @relation("ownedBy", fields: [ownerId], references: [id])
+  ownerId           Int
+  admins            conversationManagement[] @relation("administratorOf")
+  bannedUsers       bannedUser[]            @relation("bannedIn")
+  mutes             mutedUser[]             @relation("mutes")
+}
+
+model message {
+  id                Int                    @id @default(autoincrement())
+  conversation      conversation?          @relation("displayInConversation", fields: [conversationId], references: [id])
+  conversationId    Int?
+  discussion        discussion?            @relation("displayInDiscussion", fields: [discussionId], references: [id])
+  discussionId      Int?
+  sender            user                   @relation("sendMessage", fields: [senderId], references: [id])
+  senderId          Int
+  date              DateTime               @default(now())
+  content           String
+  type			    String					@default("text")
+}
+
+model membership {
+  conversation      conversation           @relation("membersOf", fields: [conversationId], references: [id])
+  conversationId    Int
+  user              user                   @relation("belongTo", fields: [userId], references: [id])
+  userId            Int
+
+  @@id([conversationId, userId])
+}
+
+model conversationManagement {
+  conversation      conversation           @relation("administratorOf", fields: [conversationId], references: [id])
+  conversationId    Int
+  user              user                   @relation("managedBy", fields: [userId], references: [id])
+  userId            Int
+
+  @@id([conversationId, userId])
+}
+
+model discussion {
+  id                Int                    @id @default(autoincrement())
+  participant1      user                   @relation("participant1", fields: [participant1Id], references: [id])
+  participant1Id    Int
+  participant2      user                   @relation("participant2", fields: [participant2Id], references: [id])
+  participant2Id    Int
+  messages          message[]              @relation("displayInDiscussion")
+}
+
+model bannedUser {
+  userBanned              user                   @relation("bannedFrom", fields: [userBannedId], references: [id])
+  userBannedId            Int
+  conversation      conversation           @relation("bannedIn", fields: [conversationId], references: [id])
+  conversationId    Int
+  userBanner             user                   @relation("banner", fields: [userBannerId], references: [id])
+  userBannerId            Int
+
+  @@id([userBannedId, conversationId])
+}
+
+model blockedUser {
+  blockedByUser     user                   @relation("blockedByUser", fields: [blockedById], references: [id])
+  blockedById       Int
+  blockedUser       user                   @relation("blockedUser", fields: [blockedUserId], references: [id])
+  blockedUserId     Int
+
+  @@id([blockedById, blockedUserId])
+}
+
+model mutedUser {
+  user              user                   @relation("mutedIn", fields: [userId], references: [id])
+  userId            Int
+  conversation      conversation           @relation("mutes", fields: [conversationId], references: [id])
+  conversationId    Int
+  mutedUntil        DateTime
+
+  @@id([userId, conversationId])
+}
+
+model game {
+	id					Int			@id @default(autoincrement())
+	player1				user		@relation("playAsPlayer1", fields: [player1Id], references: [id])
+	player1Id			Int
+	player2				user		@relation("playAsPlayer2", fields: [player2Id], references: [id])
+	player2Id			Int
+	winner				user		@relation("win", fields: [winnerId], references: [id])
+	winnerId			Int
+	type				String
+  status      String
+}

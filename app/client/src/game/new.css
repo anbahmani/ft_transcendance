@@ -1,0 +1,41 @@
+body {
+    background: radial-gradient(ellipse at bottom, #022227 0%, #000000 100%);
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+  }
+  
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+  
+  h1 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30vh;
+    letter-spacing: 1vw;
+    position: absolute;
+    top: 15vh;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: url('https://thumbs.dreamstime.com/b/tropical-flower-pattern-seamless-flowers-blossom-flowers-nature-background-vector-illustration-61142748.jpg');
+    background-size: auto 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 8s linear infinite;
+  }
+  
+  h1:nth-child(2) {
+    top: 50vh;
+  }
+  
+  @keyframes shine {
+    from {
+      background-position: center 0;
+    }
+    to {
+      background-position: center 200%;
+    }
+  }

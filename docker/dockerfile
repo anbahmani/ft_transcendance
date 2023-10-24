@@ -1,0 +1,9 @@
+FROM node:lts
+
+WORKDIR /docker_transcendance/
+
+COPY . .
+
+RUN cd app/api && npm install && cd ../..
+
+ENTRYPOINT [ "bash", "./script.sh" ]

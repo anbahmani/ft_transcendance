@@ -1,0 +1,27 @@
+Whenever a player makes a moves, he sends his paddle positions to his corresponding socket room
+The host is responsible for sending the ball position to every other player
+
+
+GameCustom
+
+The custom game create (host) can modify the map as he wants, invite a player and then start the game
+
+useState<boolean> start : true if a second player joined the room, makes the Start Game button available
+
+useState<boolean> playing : true if Start Game button is pressed, host can no longer modify game aesthetic
+                            inputs then becomes available
+
+
+JoinedCustom?room=anremiki
+
+This is for the player joining (player2) an already created custom Game
+Whenever the host makes changes in aesthetic, player2 receives the css data via sockets
+
+When host press 'playing', player2 inputs become available
+
+
+SpectateCustom?room=anremiki
+
+This is for the spectators of a game
+When joining they ask for -> all css data from host
+                          -> all objects positions

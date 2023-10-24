@@ -1,0 +1,155 @@
+#root {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  /* padding: 10%; */
+  padding-top: 2%;
+  text-align: center;
+
+  /* background-color: rgba(0, 255, 59, 0.3); */
+}
+
+/* .logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+} */
+.logo:hover {
+  box-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.1em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* @media (prefers-reduced-motion: no-preference) {
+   .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+} */
+
+.fade-scale {
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all .2s linear;
+  display: block !important;
+}
+
+.fade-scale.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.card-img-top{
+  border-radius: 50%;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.card {
+  padding: 1.5em .5em .5em;
+  border-radius: 2em;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.card-title{
+  font-weight: 700;
+  font-size: 1.5em;
+}
+
+.btn{
+  border-radius:2em;
+  background-color: teal;
+  color: #ffffff;
+  padding: .5em 1.5em;
+}
+.btn:hover {
+background-color: rgba(0, 128, 128, 0.7);
+color: #ffffff;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.logo {
+  text-align: center;
+  max-width: 470px;
+  max-height: 150px;
+  min-width: 430;
+  height: 250px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  user-select: none;
+  /* border-style: solid; */
+  border-width: 2px 2px 2px 2px;
+  border-color: #fee;
+  border-radius: 3%;
+  font: 400 8vh "Vibur";
+  box-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+
+.logo b{
+  font: 400 8vh "Vibur";
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+.logo b:hover{
+  font: 400 8vh "Vibur";
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.1em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+.logo b span{
+  animation: blink linear infinite 2s;
+}
+.logo b span:nth-of-type(2){
+  animation: blink linear infinite 3s;
+}
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79%{
+     color: #333;
+  }
+  80% {
+    
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}

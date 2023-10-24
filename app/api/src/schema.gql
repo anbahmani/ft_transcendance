@@ -1,0 +1,170 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type BlockedUser {
+  blockedUser: Int!
+  blockerId: Int!
+}
+
+type ConversationManagement {
+  conversation: conversation!
+  user: user!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Friendship {
+  id: Int!
+  owner: user!
+  ownerId: Int!
+  receiver: user!
+  receiverId: Int!
+  status: String!
+}
+
+type Game {
+  id: Int!
+  player1: user!
+  player1Id: Int!
+  player2: user!
+  player2Id: Int!
+  status: String!
+  type: String!
+  winner: user!
+  winnerId: Int!
+}
+
+type ListBlockedUser {
+  admin: Boolean!
+  id: Int!
+}
+
+type Membership {
+  conversation: conversation!
+  user: user!
+}
+
+type Mutation {
+  AddUserToConversation(conversationId: Int!, password: String, userId: Int!): conversation!
+  BanUser(conversationId: Int!, userId: Int!): conversation!
+  F2aValidate(code: String, email: String): user!
+  Games(take: Int!, userId: Int!): [Game!]!
+  JoinConversation(conversationId: Int!, password: String): conversation!
+  KickUser(conversationId: Int!, userId: Int!): conversation!
+  MuteUser(conversationId: Int!, userId: Int!): conversation!
+  SearchUsers(login: String!): [user!]!
+  UnBanUser(conversationId: Int!, userId: Int!): conversation!
+  activate2Fa: user!
+  addAdminToConversation(conversationId: Int!, userId: Int!): ConversationManagement!
+  blockUser(userId: Int!): BlockedUser!
+  createConversation(name: String!, password: String, type: String!): conversation!
+  createDiscussion(userId: Float!): discussion!
+  createFriendship(userId: Int!): Friendship!
+  createGame(type: String!, userId: Int!): Game!
+  deleteConversation(conversationId: Int!): Boolean!
+  findOne(idConversation: Float!): conversation!
+  getDiscussionById(id: Float!): discussion!
+  quitConversation(conversationId: Int!): conversation!
+  removeBlockedUser(userId: Int!): BlockedUser!
+  removeFriendship(friendship: Int!): Friendship!
+  searchConversation(name: String!): [conversation!]!
+  setAdmin(conversationId: Int!, userId: Int!): conversation!
+  unsetAdmin(conversationId: Int!, userId: Int!): conversation!
+  updateConversation(idConversation: Float!, password: String!, type: String!): conversation!
+  updateConversationTypeAndRemovePassword(conversationId: Int!, newType: String!): conversation!
+  updateFriendship(id: Int!, status: String!): Friendship!
+  updateGame(id: Int!, status: String!, userId: Int!): Game!
+  updateUser(email: String, file: Upload, login: String): user!
+}
+
+type Query {
+  auth(code: String): user!
+  findAll: [Friendship!]!
+  formatListBlock: [ListBlockedUser!]!
+  friendship(id: Int!): Friendship!
+  getAllGamesFromId(userId: Int!): [Game!]!
+  getAllUserConversations: [conversation!]!
+  getAllUserConversationsAndDiscussions: [conversation!]!
+  getAllUserDiscussions: [discussion!]!
+  getBlocked: [user!]!
+  getF2aValidate(code: String, email: String): user!
+  getGamesFromId(take: Int!, userId: Int!): [Game!]!
+  getPlayedGamesByUser(take: Int!): Game!
+  getUserById(userId: Int!): user!
+  getWonGamesByUser(take: Int!): Game!
+  user(email: String, id: Int): user!
+  users: [user!]!
+}
+
+type Subscription {
+  userUpdated: user!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type bannedUser {
+  conversation: conversation!
+  id: Int!
+  userBanned: user!
+}
+
+type conversation {
+  admins: [ConversationManagement!]
+  bannedUsers: [bannedUser!]!
+  id: Int!
+  members: [Membership!]!
+  messages: [message!]!
+  mutes: [mutedUser!]!
+  name: String
+  owner: user!
+  password: String
+  type: String!
+  users: [user!]!
+}
+
+type discussion {
+  id: Int!
+  messages: [message!]!
+  participant1: user!
+  participant2: user!
+}
+
+type message {
+  content: String!
+  conversation: conversation
+  date: DateTime!
+  discussion: discussion
+  id: Int!
+  sender: user!
+  type: String!
+}
+
+type mutedUser {
+  conversation: conversation!
+  mutedUntil: DateTime!
+  user: user!
+}
+
+type user {
+  conversations: [conversation!]
+  conversationsOwner: [conversation!]
+  email: String!
+  first_name: String!
+  follow: [Friendship!]
+  followers: [Friendship!]
+  id: Int!
+  id42: Int!
+  image: String!
+  isVerified: Boolean!
+  last_name: String!
+  login: String
+  login42: String!
+  messagesSent: [message!]
+  token: String
+  url: String!
+}

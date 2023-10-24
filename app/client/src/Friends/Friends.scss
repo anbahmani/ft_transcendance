@@ -1,0 +1,344 @@
+.friendcontainer {
+ height: 100%;
+ width: 100%;
+ position: relative;
+}
+
+.glass-friend-panel {
+  color: #000000;
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  border-radius: 0 0 15px 15px;
+  //padding: 10% 0;
+  backdrop-filter: blur(20px);
+  position: relative;
+  display: grid;
+  grid-template-columns: 2% 25% 2% 1fr 2%; // empty friendlist empty profile empty
+  grid-template-rows: 2% 69% 2% 15% 2% 8% 2%;
+}
+
+.profile-card {
+  
+  position: relative;
+  grid-column: 4 / span 1;
+  grid-row: 2 / span 4;
+
+  height: 100%;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 0px, 
+  rgba(17, 17, 26, 0.1) 0px 8px 24px, 
+  rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border-radius: 0 0 15px 15px;
+  background-color: rgba(12, 86, 206, 0.1);
+  backdrop-filter: blur(20px);
+
+  display: grid;
+  grid-template-columns: 2% 25% 2% 1fr 2%;
+  grid-template-rows: 33% 7% 55% 5%;
+}
+
+.input-with-icon {
+  position: relative;
+ 
+  grid-column: 2 / span 1;
+  grid-row: 4 / span 1;
+  overflow-x: hidden;
+  display: inline-block;
+}
+
+.friendlist {
+
+  position: relative;
+
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+
+  height: 100%;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, 
+  rgba(17, 17, 26, 0.1) 0px 8px 24px, 
+  rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  /*border: solid white;*/
+  border-radius: 0 0 15px 15px;
+  background-color: rgba(12, 86, 206, 0.1);
+  backdrop-filter: blur(20px);
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.profile-options {
+
+  position: relative;
+
+  grid-column: 2 / span 1;
+  grid-row: 3 / span 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-history {
+
+  position: relative;
+  
+  grid-column: 4 / span 1;
+  grid-row: 3 / span 1;
+
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, 
+  rgba(17, 17, 26, 0.1) 0px 8px 24px, 
+  rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border-radius: 0 0 15px 15px;
+  background-color: rgba(12, 86, 206, 0.1);
+  backdrop-filter: blur(20px);
+  display: block;
+  overflow-y: auto;
+}
+
+.profile-myhistory {
+  position: relative;
+
+  grid-column: 2 / span 3;
+  grid-row: 3 / span 1;
+
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, 
+  rgba(17, 17, 26, 0.1) 0px 8px 24px, 
+  rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border-radius: 0 0 15px 15px;
+  background-color: rgba(12, 86, 206, 0.1);
+  backdrop-filter: blur(20px);
+  display: block;
+  overflow-y: auto;
+}
+
+.profile-title {
+
+  position: relative;
+  grid-column: 1 / span 5;
+  grid-row: 1 / span 1;
+  background: url('https://yourimageshare.com/ib/pB2PLLD3HC.webp');
+  background-size: cover;
+  animation: shine 12s linear infinite;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  &:nth-child(2) {
+    top: 50vh;
+  }
+  @keyframes shine {
+    from {
+      background-position: center 0;
+    }
+    to {
+      background-position: center 200%;
+    }
+  }
+}
+
+.profile-pic {
+
+  border-radius: 50%;
+  position: relative;
+  width: 15%;
+  min-width: 100px;
+  height: auto;
+  bottom: -25px;
+  left: 25px;
+  border: 1px solid #ffffff;
+  box-shadow: -11px 10px 13px 5px rgba(0,0,0,0.64);
+-webkit-box-shadow: -11px 10px 13px 5px rgba(0,0,0,0.64);
+-moz-box-shadow: -11px 10px 13px 5px rgba(0,0,0,0.64);
+  order: 0;
+}
+
+.profile-name {
+
+  position: relative;
+  font-size: x-large;
+  color: white;
+  text-shadow: 
+  -1px -1px 0 black,
+   1px -1px 0 black,
+  -1px 1px 0 black,
+   1px 1px 0 black;
+  left: 35px;
+  text-overflow: ellipsis;
+  order: 1;
+}
+
+.searchlist {
+
+  position: absolute;
+  left: 0%;
+  top: 105%;
+  width: 100%;
+  //height: 90%;
+  min-height: 20%;
+  color: #000000;
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, 
+  rgba(17, 17, 26, 0.1) 0px 8px 24px, 
+  rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  //border: solid white;
+  block-size: 20%;
+  writing-mode: horizontal-tb;
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  display: inline;
+  overflow-x: auto;
+}
+
+.found {
+  height: 18%;
+  background: #eeeeee00;
+  padding-left: 20px;
+  cursor: pointer;
+  display: inline-block;
+  align-items: center;
+  margin: 0 auto;
+  color: white;
+  font-size: large;
+  transition: background-color 0.2s ease; /* Ajouter une transition pour une animation fluide */
+}
+
+.found:hover {
+  backdrop-filter: blur(10px);
+}
+
+.icon {
+
+  font-size: 20px;
+  padding-left: 10px;
+  pointer-events: none;
+}
+
+.friend {
+    min-width: 20%;
+    height: 18%;
+    background: #eeeeee00;
+    border-bottom: 1px solid #dddddd64;
+    padding-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    transition: background-color 0.2s ease; /* Ajouter une transition pour une animation fluide */
+  }
+
+.friend:hover {
+    backdrop-filter: blur(10px);
+}
+
+.invite {
+  min-width: 20%;
+  height: 18%;
+  background: #eeeeee00;
+  border-bottom: 1px solid #dddddd64;
+  padding-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  transition: background-color 0.2s ease; /* Ajouter une transition pour une animation fluide */
+}
+
+.invite:hover {
+  backdrop-filter: blur(10px);
+}
+
+.sent {
+  min-width: 20%;
+  height: 18%;
+  background: #eeeeee00;
+  border-bottom: 1px solid #dddddd64;
+  padding-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  color: green;
+  transition: background-color 0.2s ease; /* Ajouter une transition pour une animation fluide */
+}
+
+.sent:hover {
+  backdrop-filter: blur(10px);
+}
+
+.rec {
+  min-width: 20%;
+  height: 18%;
+  background: #eeeeee00;
+  border-bottom: 1px solid #dddddd64;
+  padding-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  color: rgb(185, 185, 185);
+  transition: background-color 0.2s ease; /* Ajouter une transition pour une animation fluide */
+}
+
+.rec:hover {
+  backdrop-filter: blur(10px);
+}
+
+.profile-history-title {
+
+  min-height: 20%;
+  block-size: 20%;
+  writing-mode: horizontal-tb;
+  background-color: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-history-game {
+
+  min-height: 20%;
+  block-size: 20%;
+  max-width: 100%;
+  overflow-x: hidden;
+  writing-mode: horizontal-tb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dddddd64;
+  backdrop-filter: blur(20px);
+}
+
+@media (max-width: 992px) {
+
+  .glass-friend-panel {
+    grid-template-columns: 2% 1fr 2%;
+    grid-template-rows: 2% 65% 2% 20% 1% 8% 2%;
+  }
+
+  .input-with-icon {
+    grid-column: 2 / span 1;
+    grid-row: 6 / span 1;
+  }
+
+  .friendlist {
+    grid-column: 2 / span 1;
+    grid-row: 4 / span 1;
+  }
+
+  .profile-card {
+    grid-column: 2 / span 1;
+    grid-row: 2 / span 1;
+  }
+
+  .profile-pic {
+    bottom: -15px;
+  }
+
+}

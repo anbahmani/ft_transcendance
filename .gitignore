@@ -1,0 +1,4 @@
+node_modules/*
+app/api/public/*
+app/client/dist
+app/api/prisma/generated
