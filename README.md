@@ -1,127 +1,63 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+[![fr](https://img.shields.io/badge/language-fr-blue.svg)](https://github.com/anbahmani/ft_transcendance/blob/main/README.fr.md)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-## WIP
+## Table of Contents
+1. [Overview](#📷-overviewoverview)
+2. [Technologies](#🚀-technologies-used)
+3. [Security](#🛡️-security)
+4. [User Account Management](#👤-user-account-management)
+5. [Chat](#⚙️-chat-functionality)
+6. [Gameplay](#🎮-gameplay)
 
-<p>
-/Spectate
-</P>
-<p>
--> Spectator mode paddle position lagging
-
-</p>
-<p>
-/Friends
-</p>
-<p>
--> Friend Profile needs to auto-update when Friendship status change
-
-</p>
-<p>
-/Gamecustom
-</p>
-<p>
--> Need to add invite player button
-</p>
-<p>
--> Need to add power ups (to be taken with paddles)
-</p>
-<p>
--> Need to add obstacles ?
-</p>
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## FOR MAC
-
--> if you have permission issues, check the .docker, docker can't access it without permissions
--> JUST CHMOD AT 777
+## 📷 Overview
+This project is a comprehensive platform dedicated to the iconic game of Pong, enabling users to compete in real-time. The site features a sleek user interface, an in-built chat system, and a host of features for an immersive online multiplayer experience.
 
 
-## Docker
--> install [docker](https://docs.docker.com/engine/install/debian/) & [docker-compose](https://docs.docker.com/compose/install/linux/)
+## 🚀 Technologies Used
 
-Execute the Docker command without sudo :
-```bash
-$ sudo usermod -aG docker ${USER} //add your name to docker groupe
+- Backend: Crafted with NestJS, ensuring a robust architecture and efficient handling of various requests. API communication is via the GraphQL protocol, and database communication is via the Prisma ORM.
+- Frontend: Developed using React, providing a dynamic and responsive UI.
+- Database: Exclusive use of PostgreSQL for reliable, high-performance data management.
+- Deployment: Seamless integration with Docker, enabling quick, reliable project launch.
+
+## 🛡️ Security
+Special emphasis is given to security aspects:
+
+- Secure hashing of passwords prior to storage.
+- Enhanced protection against SQL injections.
+- Rigorous server-side validation for all forms and user inputs.
+- Secure management of API keys and sensitive data, preventing any public exposure.
+
+## 👤 User Account Management
+Users log in via the 42 intranet OAuth system, with extensive profile features:
+
+- Selection of a unique name and avatar upload.
+- Enablement of two-factor authentication.
+- Capability to add friends and view their real-time status (online, offline and in game).
+- Detailed profiles displaying game stats, match history, and more.
+
+## ⚙️ Chat Functionality
+The site includes an integrated chat allowing:
+
+- Creation of public, private, or password-secured channels.
+- Direct message sending.
+- Blocking of unwanted users.
+- Advanced rights management for channel owners and administrators.
+- Direct game invitations via chat.
+
+## 🎮 Gameplay
+At the heart of the site is Pong gameplay, featuring:
+
+- Real-time matches against other players.
+- A fair matchmaking system.
+- Network issue management for a flawless user experience.
+
+## 🧑‍💻 Launch app
+
 ```
-Add you user to www-data group :
-```bash
-$ sudo usermod -aG www-data ${USER} 
-```
-## ACCESS
-<p>
-http://localhost:3000/graphql to access the NestJS application trough graphql
-</p>
-<p>
-http://localhost:5050 to access the PgAdmin
-</p>
-<p>
-http://localhost:3000 to access the NestJS application
-</p>
-
-## ENV
-
-exemple .env :
-
-POSTGRES_DB=nest
-POSTGRES_USER=boss
-POSTGRES_PASSWORD=bosspw
-
-PORT=3000
-
-API_APP_ID=------------------------------------------
-API_APP_SECRET=--------------------------------------
-API_APP_URL=https://api.intra.42.fr
-
-JWT_KEY=dev
-JWT_SECRET=cjaksbvhjafvgjfasjcfdtyasvfd4sv57fd4sv6fs4v896r4e6w1a3zas1v38ew4vwe1v35r1wev53rew
-JWT_EXPIRES=365d
-
-## Installation
-
-```bash
-$ npm install
+  git clone git@github.com:anbahmani/ft_transcendance.git
+  cd ft_transcendance ; make ;
 ```
 
-## Running the app
+Go to URL ```localhost:3000```
 
-```bash
-# development
-$ npm run dev
-
--> by using turbo i can launch react and nestjs app on the same time 
-refer to  -> https://www.youtube.com/watch?v=nY0R7pslbCI&t=640s
-          -> https://vitejs.dev/guide/
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+This project represents a complex fusion of modern web technologies, real-time interactive features, and meticulous attention to security and performance details, delivering a nostalgic yet innovative gaming platform.
